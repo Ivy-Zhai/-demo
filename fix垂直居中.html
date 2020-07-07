@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fix垂直居中</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#daohang{
+			position: fixed;
+			top:0;
+			background-color: red;
+			border: dotted 2px black;
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<div id="daohang">
+		<h1>导航</h1>
+	</div>
+	<script type="text/javascript">
+		var x=0,y=0,z=0;
+		var div=document.getElementById("daohang");
+		x=div.offsetHeight;
+		//x=window.innerHeight;
+		window.onresize = function(){//窗口变化时div会移动。
+			x=div.offsetHeight;
+			y=document.documentElement.clientHeight;
+			//document.getElementById("daohang").innerHTML=y;
+			z=(y-x)/2;
+			document.getElementById("daohang").style.top=z+"px";
+		}
+		y=document.documentElement.clientHeight;
+		z=(y-x)/2;
+		document.getElementById("daohang").style.color="pink";//随便写的，用JS修改div中的文字颜色
+		document.getElementById("daohang").style.top=z+"px";
+		
+	</script>
+</body>
+</html>
